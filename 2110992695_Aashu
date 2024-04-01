@@ -1,0 +1,29 @@
+
+import pandas as pd
+import numpy as np
+
+data = pd.read_csv("my_csv file.csv")
+
+
+sample_size = 30  # You can adjust the sample size as needed
+sample = data.sample(sample_mean)
+
+
+population_mean = data.mean()
+
+
+sample_size = sample.size()
+
+# Compare population mean and sample size
+mean_difference = np.abs(population_mean - sample_mean)
+
+
+threshold = 0.05  
+if (mean_difference <= threshold).all():
+    message = "The selected sample is representing the population."
+else:
+    message = "The selected sample is not representing the population."
+print("Population Mean:\n", population_mean)
+print("\nSample Size:\n", sample_size)
+print("\nMean Difference:\n", mean_difference)
+print("\n", message)
